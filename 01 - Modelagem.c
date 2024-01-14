@@ -69,7 +69,14 @@ void buscaSequencial(LISTA* l TIPOCHAVE ch){
 
 //Inserção de um elemento em posição especifica
 
-bool inserirEleLista(LISTA* l, REGISTRO reg, int i){
+bool inserirElemLista(LISTA* l, REGISTRO reg, int i){
     int j;
-    if((l->nroElem))
+    if((l->nroElem == MAX) || (i<0) || (i > l->nroElem))
+        return false;
+    for (j = l->nroElem; j>i ; j--) l-> A[j] = l -> A[j-1];
+    l -> A[i] = reg;
+    l -> nroElem++;
+    return true;
 }
+
+//
