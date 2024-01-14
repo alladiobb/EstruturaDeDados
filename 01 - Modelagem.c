@@ -57,7 +57,6 @@ void exibirLista(LISTA* l){
 }
 
 //Buscar por elemento
-
 void buscaSequencial(LISTA* l TIPOCHAVE ch){
     int i=0;
     while(i<l->nroElem){
@@ -68,7 +67,6 @@ void buscaSequencial(LISTA* l TIPOCHAVE ch){
 }
 
 //Inserção de um elemento em posição especifica
-
 bool inserirElemLista(LISTA* l, REGISTRO reg, int i){
     int j;
     if((l->nroElem == MAX) || (i<0) || (i > l->nroElem))
