@@ -79,4 +79,13 @@ bool inserirElemLista(LISTA* l, REGISTRO reg, int i){
     return true;
 }
 
-//
+//Exclusão Elemento
+bool excluirElemLista(TIPOCHAVE ch, LISTA* 1){
+    int pos, j;
+    pos = buscaSequencial(l,ch);
+    if(pos == -1) return false;
+    for (j = pos; j < l->nroElem-1; j++)
+        l -> A[j] = l -> A[j+1];
+    l->nroElem--;
+    return true;
+}
