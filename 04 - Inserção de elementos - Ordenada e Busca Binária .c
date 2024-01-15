@@ -37,3 +37,12 @@ int buscaBinaria(LISTA l, TIPOCHAVE ch){
     }
     return -1;
 }
+
+bool excluirElemLista(LISTA* 1, TIPOCHAVE ch){
+    int pos, j;
+    pos = buscaBinaria(l,ch);
+    if(pos == -1) return false;
+    for (j=pos; j < l-> nroElem-1; j++) l->A[j] = l->A[j+1];
+    l->nroElem--;
+    return true;
+}
