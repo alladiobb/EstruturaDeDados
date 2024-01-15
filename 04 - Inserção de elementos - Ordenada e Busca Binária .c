@@ -22,3 +22,18 @@ bool inserirElemListaOrd(LISTA* l, REGISTRO reg){
     l->A[pos] = reg;
     l->nroElem++;
 }
+
+int buscaBinaria(LISTA l, TIPOCHAVE ch){
+    int esq, dir, meio;
+    esq = 0;
+    dir = l->nroElem-1;
+    while(esq <= dir){
+        meio = ((dir+esq)/2)
+        if(l->A[meio].chave==ch)return meio;
+        else{
+            if(l->A[meio].chave<ch) esq = meio + 1;
+            else dir = meio -1;
+        }
+    }
+    return -1;
+}
