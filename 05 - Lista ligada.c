@@ -84,22 +84,59 @@ int obterNo(LISTA* l){
 }
 
 bool inserirElemListaOrd(LISTA* l, REGISTRO reg){
+
+    //Verifica se tem disponibilidade
     if(l->dispo == INVALIDO) return false;
+
+
     int ant = INVALIDO;
     int i = l -> inicio;
     TIPOCHAVE ch = reg.chave;
-    
+
+
     while((i != INVALIDO) && (l->A[i].reg.chave < ch)){
         ant = i;
         i = l->A[i].prox;
     }
+
+    //Verifica se tem duplicação, se tiver ele sai 
     if (i != INVALIDO && l->A[i].reg.chave == ch) return false;
 
     i = obterNo(l);
     l -> A[i].reg = reg
 
+    if(ant == INVALIDO){
+        l->A[i].prox = l->inicio;
+        l->inicio = i;
+    }else{
+        l->A[i].prox = l->A[ant].prox;
+        l->A[ant].prox = i;
+    }
+    return true;
+
     // no = obterNo(LISTA* l);
     // l->A[no].reg.chave = reg;
     // l->A[no].prox = l->dispo;
 
+}
+
+bool inserirElemListaOrd(LISTA* l, REGISTRO reg){
+    
+    int ant = INVALIDO;
+    int i = l -> inicio;
+    TIPOCHAVE ch = reg.chave;
+
+
+    while((i != INVALIDO) && (l->A[i].reg.chave < ch)){
+        ant = i;
+        i = l->A[i].prox;
+    }
+
+    //Verifica se tem duplicação, se tiver ele sai 
+    if (i != INVALIDO || l->A[i].reg.chave != ch) return false;
+    if (ant == INVALIDO) l->inicio = l->A[i].prox;
+    eles l->A[ant].prox = l->A[i].prox;
+    devolverNo();
+    return true;
+    
 }
