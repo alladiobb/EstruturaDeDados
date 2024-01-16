@@ -47,11 +47,59 @@ int tamanho(LISTA l){
 }
 
 int exibirLista(LISTA l){
-    int i = l->inicio
+    int i = l->inicio;
     printf("Lista: \" ")
     while (i != INVALIDO){
         printf("%i ", l->A[i].reg.chave);
         i = l->A[i].prox;
     }
     printf("\"\n");
+}
+
+int buscaSequencialOrd(LISTA l, TIPOCHAVE ch){
+    int i = l->inicio;
+    int valor;
+    while (i != INVALIDO && l->A[i].reg.chave < ch )
+        i = l->A[i].prox;
+    if (i!= INVALIDO && l->A[i].reg.chave == ch )
+        return i;
+    else return INVALIDO;
+}
+
+int inserir(LISTA l, TIPOCHAVE ch){
+    int i = l->inicio;
+    int valor;
+    while (i != INVALIDO && l->A[i].reg.chave < ch )
+        i = l->A[i].prox;
+    if (i!= INVALIDO && l->A[i].reg.chave == ch )
+        return i;
+    else return INVALIDO;
+}
+
+int obterNo(LISTA* l){
+    int resultado = l->dispo;
+    if (l->dispo != INVALIDO)
+        l->dispo = l->A[l->disp].prox;
+    return resultado;
+}
+
+bool inserirElemListaOrd(LISTA* l, REGISTRO reg){
+    if(l->dispo == INVALIDO) return false;
+    int ant = INVALIDO;
+    int i = l -> inicio;
+    TIPOCHAVE ch = reg.chave;
+    
+    while((i != INVALIDO) && (l->A[i].reg.chave < ch)){
+        ant = i;
+        i = l->A[i].prox;
+    }
+    if (i != INVALIDO && l->A[i].reg.chave == ch) return false;
+
+    i = obterNo(l);
+    l -> A[i].reg = reg
+
+    // no = obterNo(LISTA* l);
+    // l->A[no].reg.chave = reg;
+    // l->A[no].prox = l->dispo;
+
 }
