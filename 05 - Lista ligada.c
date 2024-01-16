@@ -44,9 +44,10 @@ int tamanho(LISTA l){
         tam++;
         i = l->A[i].prox;
     }
+    return tam;
 }
 
-int exibirLista(LISTA l){
+void exibirLista(LISTA l){
     int i = l->inicio;
     printf("Lista: \" ")
     while (i != INVALIDO){
@@ -63,7 +64,8 @@ int buscaSequencialOrd(LISTA l, TIPOCHAVE ch){
         i = l->A[i].prox;
     if (i!= INVALIDO && l->A[i].reg.chave == ch )
         return i;
-    else return INVALIDO;
+    else 
+        return INVALIDO;
 }
 
 int inserir(LISTA l, TIPOCHAVE ch){
