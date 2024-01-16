@@ -120,23 +120,34 @@ bool inserirElemListaOrd(LISTA* l, REGISTRO reg){
 
 }
 
-bool inserirElemListaOrd(LISTA* l, REGISTRO reg){
+bool excluirElemListaOrd(LISTA* l, REGISTRO reg){
     
     int ant = INVALIDO;
     int i = l -> inicio;
     TIPOCHAVE ch = reg.chave;
-
 
     while((i != INVALIDO) && (l->A[i].reg.chave < ch)){
         ant = i;
         i = l->A[i].prox;
     }
 
-    //Verifica se tem duplicação, se tiver ele sai 
-    if (i != INVALIDO || l->A[i].reg.chave != ch) return false;
-    if (ant == INVALIDO) l->inicio = l->A[i].prox;
-    eles l->A[ant].prox = l->A[i].prox;
-    devolverNo();
-    return true;
+    //Verifica se invalido OU não for igual a chave procurada
+    if (i == INVALIDO || l->A[i].reg.chave != ch) return false;
     
+    //Tem anterior ou não tem anteior?
+    if (ant == INVALIDO) l->inicio = l->A[i].prox;
+    else l->A[ant].prox = l->A[i].prox;
+
+    //Função que devolve a posiçao disponível
+    devolverNo(l,i);
+    return true;
+}
+
+void devolverNo(LISTA* l, int j){
+    l->A[j].prox = l->dispo;
+    l->dispo = j;
+}
+
+void reinicializarLista(LISTA* l){
+    inicializarLista(l);
 }
