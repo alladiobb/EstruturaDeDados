@@ -88,11 +88,21 @@ bool inserirElemListaOrd(LISTA* l, REGISTRO reg){
     return true;
 }
 
-bool excluirElemLista(LISTA* 1, TIPOCHAVE ch){
+bool excluirElemLista(LISTA* l, TIPOCHAVE ch){
     PONT ant, int prox;
     i = buscaSequencialExc(l,ch,&ant);
     if (ant == NULL) l-> inicio = i-> prox;
     else ant -> prox = i-> prox;
     free(i);
     return true
+}
+
+bool reinicializarLista(LISTA* l){
+    PONT end = 1 -> inicio;
+    while(end != NULL){
+        PONT apagar = end;
+        end = end->prox;
+        free(apagar);
+    }
+    l-> inicio=NULL;
 }
