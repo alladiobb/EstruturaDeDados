@@ -60,3 +60,14 @@ PONT buscarSequencialOrdenada(LISTA *1, TIPOCHAVE ch){
     return NULL;
 }
 
+
+PONT buscaSequencialExc(LISTA* 1, TIPOCHAVE ch, PONT* ant){
+    *ant = NULL;
+    PONT atual = 1-> inicio;
+    while ((atual!= NULL) && (atual -> reg.chave<ch)){
+        *ant = atual;
+        atual = atual -> prox;
+    }
+    if ((atual != NULL) && (atual -> reg.chave == ch)) return atual;
+    return NULL;
+}
