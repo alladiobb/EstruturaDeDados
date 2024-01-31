@@ -60,7 +60,10 @@ PONT buscarSequencialOrdenada(LISTA *1, TIPOCHAVE ch){
     return NULL;
 }
 
-PONT buscaSequencialExc(LISTA* l, TIPOCHAVE ch, PONT* ant){
+//Se atentar para o arquivo 06.1 - Passando dois resultados.c
+//Vai ajudar a entender o método abaixo
+
+PONT buscaSequencialAuxiliarERetornaAnterior(LISTA* l, TIPOCHAVE ch, PONT* ant){
     *ant = NULL;
     PONT atual = l-> inicio;
     while ((atual!= NULL) && (atual -> reg.chave<ch)){
@@ -74,10 +77,10 @@ PONT buscaSequencialExc(LISTA* l, TIPOCHAVE ch, PONT* ant){
 bool inserirElemListaOrd(LISTA* l, REGISTRO reg){
     TIPOCHAVE ch = reg.chave;
     PONT ant, i;
-    i = buscaSequencialExc(l,ch,&ant);
+    i = buscaSequencialAuxiliarERetornaAnterior(l,ch,&ant);
     if (i!=NULL) return false;
     i = (PONT) malloc(sizeof(ELEMENTO));
-    i->reg = REGISTRO reg;
+    i->reg = reg;
     if (ant==NULL){
         i->prox = l->int inicio;
         l->inicio = i;
@@ -89,8 +92,9 @@ bool inserirElemListaOrd(LISTA* l, REGISTRO reg){
 }
 
 bool excluirElemLista(LISTA* l, TIPOCHAVE ch){
-    PONT ant, int prox;
-    i = buscaSequencialExc(l,ch,&ant);
+    PONT ant, i;
+    i = buscaSequencialAuxiliarERetornaAnterior(l,ch,&ant);
+    if (i == NULL) return false;
     if (ant == NULL) l-> inicio = i-> prox;
     else ant -> prox = i-> prox;
     free(i);
