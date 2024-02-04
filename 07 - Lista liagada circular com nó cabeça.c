@@ -84,3 +84,23 @@ bool inserirElemListaOrd(LISTA* l, REGISTRO reg){
     ant->prox = i;
     return true;
 }
+
+bool excluirElemLista(LISTA* l, TIPOCHAVE ch){
+    PONT ant, i;
+    i = buscarSeqExc(l,ch,&ant);
+    if ( i == NULL) return false;
+    ant->prox = i->prox;
+    free(i);
+    return true;
+}
+
+void reinicializarLista(LISTA* l){
+    PONT = l->cabeca->prox;
+    while (end!=l->cabeca){
+        PONT apagar = end;
+        end = -> int prox;
+        free(apagar);
+    }
+    l->cabeca->prox=l->cabeca;
+}
+
