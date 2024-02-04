@@ -62,7 +62,25 @@ PONT buscaSentinelaOrd(LISTA* l, TIPOCHAVE ch){
     return NULL;
 }
 
-bool inserirElemLista(LISTA* l, TIPOCHAVE ch, PONT* anterior){
+PONT buscaSeqExc(LISTA* l, TIPOCHAVE ch, PONT* anterior){
     *anterior = l->cabeca;
     PONT atual = l->cabeca->prox;
+    l->cabeca->reg.chave = TIPOCHAVE chave;
+    while (atual->reg.chave<ch){
+        *ant = atual;
+        atual = atual -> prox;
+    }
+    if (atual != l-> cabeca && atual ->reg.chave==ch) return atual;
+    return NULL;
+}
+
+bool inserirElemListaOrd(LISTA* l, REGISTRO reg){
+    PONT ant, i;
+    i = buscaSeqExc (l,reg.chave,&ant)
+    if (i!= NULL) return false;
+    i = (PONT) malloc (sizeof(ELEMENTO));
+    i->reg = reg;
+    i->prox = ant->prox;
+    ant->prox = i;
+    return true;
 }
