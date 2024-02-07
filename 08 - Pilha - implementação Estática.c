@@ -15,3 +15,7 @@ typedef struct{
     REGISTRO A[MAX];
     int topo;  
 }PILHA;
+
+void inicializar(PILHA* p){
+    p->topo=-1;
+}
