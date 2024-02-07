@@ -19,3 +19,13 @@ typedef struct{
 void inicializar(PILHA* p){
     p->topo=-1;
 }
+
+int tamanho(PILHA* p){
+    int tamanho;
+    tamanho = p->topo+1;
+    return tamanho;
+}
+
+void imprimirElementos(PILHA* p){
+    
+}
