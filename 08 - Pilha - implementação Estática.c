@@ -26,6 +26,21 @@ int tamanho(PILHA* p){
     return tamanho;
 }
 
+//Tamanho da pilha mais simples
+int tamanhoRefact(PILHA* p){
+    return p->topo+1;
+}
+
 void imprimirElementos(PILHA* p){
+    int count = p->topo;
+    printf("Lista: \" ");
+    while( count != -1){
+        printf("%i ", p -> A[count].chave);
+        count --;
+    }
+    printf("\"\n");
+}
+
+void push(){
     
 }
