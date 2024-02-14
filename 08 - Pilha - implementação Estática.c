@@ -1,8 +1,8 @@
-#include<stdio.h>
-#define MAX 50
+include<stdio.h>
+define MAX 50
 
-#define true 1
-#define false 0
+define true 1
+define false 0
 typedef int bool;
 
 typedef int TIPOCHAVE;
@@ -42,9 +42,15 @@ void imprimirElementos(PILHA* p){
 }
 
 bool push(PILHA* p, REGISTRO reg){
-    if (p->topo >=MAX-1) return false;
+    if (p->topo >= MAX-1) return false;
     p->A[p->topo] = reg;
     p->topo = p->topo+1;
     return true;
 }
 
+bool pop(PILHA* p, REGISTRO* reg){
+    if (p->topo == -1) return false;
+    *reg p->A[p->topo];
+    p->topo = p->topo-1;
+    return true;
+}
