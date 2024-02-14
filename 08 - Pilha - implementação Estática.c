@@ -17,7 +17,7 @@ typedef struct{
 }PILHA;
 
 void inicializar(PILHA* p){
-    p->topo=-1;
+    p->topo = -1;
 }
 
 int tamanho(PILHA* p){
@@ -53,4 +53,8 @@ bool pop(PILHA* p, REGISTRO* reg){
     *reg p->A[p->topo];
     p->topo = p->topo-1;
     return true;
+}
+
+void reinicializarPilha(PILHA* p){
+    p->topo  = -1;
 }
