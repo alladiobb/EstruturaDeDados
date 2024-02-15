@@ -1,9 +1,5 @@
 #include<stdio.h>
-#define MAX 50
-
-#define true 1
-#define false 0
-typedef int bool;
+#include<malloc.h>
 
 typedef int TIPOCHAVE;
 
@@ -11,24 +7,30 @@ typedef struct{
     TIPOCHAVE chave;
 }REGISTRO;
 
+typedef struct aux{
+    REGISTRO reg;
+    struct aux* prox;
+}ELEMENTO;
+
+typedef ELEMENTO* PONT;
+
 typedef struct{
-    REGISTRO A[MAX];
-    int topo;  
+    PONT topo;
 }PILHA;
 
 void inicializar(PILHA* p){
-    p->topo = -1;
-}
-
-int tamanho(PILHA* p){
-    int tamanho;
-    tamanho = p->topo+1;
-    return tamanho;
+    p->topo = NULL;
 }
 
 //Tamanho da pilha mais simples
-int tamanhoRefact(PILHA* p){
-    return p->topo+1;
+int tamanho(PILHA* p){
+    int tamanho = 0;
+    PONTO aux = p->topo;
+    while(aux != null){
+        tamanho ++;
+        end = end->prox;
+    }
+    return tamanho;
 }
 
 void imprimirElementos(PILHA* p){
