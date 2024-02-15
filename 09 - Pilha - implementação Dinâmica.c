@@ -3,7 +3,6 @@
 
 #define true 1
 #define false 0
-
 typedef int bool;
 
 typedef int TIPOCHAVE;
@@ -44,8 +43,8 @@ void imprimirElementos(PILHA* p){
 
 bool push(PILHA* p, REGISTRO reg){
     if (p->topo >= MAX-1) return false;
-    p->A[p->topo] = reg;
     p->topo = p->topo+1;
+    p->A[p->topo] = reg;
     return true;
 }
 
