@@ -1,8 +1,9 @@
-include<stdio.h>
-define MAX 50
+#include<stdio.h>
+#define MAX 50
 
-define true 1
-define false 0
+#define true 1
+#define false 0
+
 typedef int bool;
 
 typedef int TIPOCHAVE;
