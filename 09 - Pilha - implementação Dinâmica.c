@@ -47,6 +47,11 @@ int tamanho(PILHA* p){
     return tamanho;
 }
 
+bool estaVazia(PILHA* p){
+    if (p->topo == NULL)return true;
+    return false;
+}
+
 void imprimirElementos(PILHA* p){
     int count = p->topo;
     printf("Lista: \" ");
