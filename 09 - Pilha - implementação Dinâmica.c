@@ -79,8 +79,8 @@ bool pop(PILHA* p, REGISTRO reg){
     return true;
 }
 
-//Tira o elemento e
-bool pop2(PILHA* p, REGISTRO* reg){
+//Tira o elemento e retorna o valor retirado
+bool popWithReturn(PILHA* p, REGISTRO* reg){
     if (p->topo == NULL) return false;
     *reg = p->topo->reg;
     PONT topoApagar = P->topo;
@@ -91,5 +91,11 @@ bool pop2(PILHA* p, REGISTRO* reg){
 
 
 void reinicializarPilha(PILHA* p){
-    p->topo  = -1;
+    PONT topoApagar;
+    while(p->topo != NULL){
+        topoApagar = P->topo;
+        free(topoApagar);
+        p->topo = p->topo.prox;
+    }
+    p->topo = NULL;
 }
