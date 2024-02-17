@@ -37,9 +37,9 @@ int tamanho(PILHA* p){
 }
 
 //Tamanho da pilha passando uma cópia
-int tamanho(PILHA* p){
+int tamanho(PILHA p){
     int tamanho = 0;
-    PONTO aux = p->topo;
+    PONTO aux = p.topo;
     while(aux != null){
         tamanho ++;
         end = end->prox;
@@ -70,15 +70,25 @@ bool push(PILHA* p, REGISTRO reg){
     return true;
 }
 
-bool pop(PILHA* p, REGISTRO* reg){
-    if (p->topo == null) return false;
-    
-    *reg = topo
-    
-    //*reg p->A[p->topo];
-    //p->topo = p->topo-1;
+
+bool pop(PILHA* p, REGISTRO reg){
+    if (p->topo == NULL) return false;
+    PONT topoApagar = P->topo;
+    p->topo = p->topo.prox;
+    free(topoApagar);
     return true;
 }
+
+//Tira o elemento e
+bool pop2(PILHA* p, REGISTRO* reg){
+    if (p->topo == NULL) return false;
+    *reg = p->topo->reg;
+    PONT topoApagar = P->topo;
+    p->topo = p->topo.prox;
+    free(topoApagar);
+    return true;
+}
+
 
 void reinicializarPilha(PILHA* p){
     p->topo  = -1;
