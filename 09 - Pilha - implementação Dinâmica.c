@@ -22,7 +22,21 @@ void inicializar(PILHA* p){
     p->topo = NULL;
 }
 
-//Tamanho da pilha mais simples
+
+// ---- perceba a diferença entre essas duas opções abaixo!
+
+//Tamanho da pilha passando o endereço da pilha/ponteiro
+int tamanho(PILHA* p){
+    int tamanho = 0;
+    PONTO aux = p->topo;
+    while(aux != null){
+        tamanho ++;
+        end = end->prox;
+    }
+    return tamanho;
+}
+
+//Tamanho da pilha passando uma cópia
 int tamanho(PILHA* p){
     int tamanho = 0;
     PONTO aux = p->topo;
