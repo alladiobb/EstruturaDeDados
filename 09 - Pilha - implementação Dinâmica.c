@@ -63,17 +63,20 @@ void imprimirElementos(PILHA* p){
 }
 
 bool push(PILHA* p, REGISTRO reg){
-    PONTO novo = (PONTO) malloc(sizeof(ELEMENTO));
-    novo->reg = reg;
-    novo->prox = p->topo;
-    p->topo = novo;
+    PONTO novoElemPont = (PONTO) malloc(sizeof(ELEMENTO));
+    novoElemPont->reg = reg;
+    novoElemPont->prox = p->topo;
+    p->topo = novoElemPont;
     return true;
 }
 
 bool pop(PILHA* p, REGISTRO* reg){
-    if (p->topo == -1) return false;
-    *reg p->A[p->topo];
-    p->topo = p->topo-1;
+    if (p->topo == null) return false;
+    
+    *reg = topo
+    
+    //*reg p->A[p->topo];
+    //p->topo = p->topo-1;
     return true;
 }
 
