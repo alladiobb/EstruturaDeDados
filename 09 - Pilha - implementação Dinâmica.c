@@ -63,9 +63,10 @@ void imprimirElementos(PILHA* p){
 }
 
 bool push(PILHA* p, REGISTRO reg){
-    if (p->topo >= MAX-1) return false;
-    p->topo = p->topo+1;
-    p->A[p->topo] = reg;
+    PONTO novo = (PONTO) malloc(sizeof(ELEMENTO));
+    novo->reg = reg;
+    novo->prox = p->topo;
+    p->topo = novo;
     return true;
 }
 
