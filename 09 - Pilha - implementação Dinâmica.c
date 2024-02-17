@@ -53,11 +53,11 @@ bool estaVazia(PILHA* p){
 }
 
 void imprimirElementos(PILHA* p){
-    int count = p->topo;
+    PONT endereco = p->topo;
     printf("Lista: \" ");
-    while( count != -1){
-        printf("%i ", p -> A[count].chave);
-        count --;
+    while( endereco != null){
+        printf("%i ", endereco->reg.chave);
+        endereco = endereco->prox;
     }
     printf("\"\n");
 }
