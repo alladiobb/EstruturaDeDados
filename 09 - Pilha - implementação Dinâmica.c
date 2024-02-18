@@ -95,7 +95,7 @@ void reinicializarPilha(PILHA* p){
     while(p->topo != NULL){
         topoApagar = P->topo;
         free(topoApagar);
-        p->topo = p->topo.prox;
+        p->topo = p->topo->prox;
     }
     p->topo = NULL;
 }
