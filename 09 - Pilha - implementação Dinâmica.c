@@ -73,7 +73,7 @@ bool push(PILHA* p, REGISTRO reg){
 
 bool pop(PILHA* p, REGISTRO reg){
     if (p->topo == NULL) return false;
-    PONT topoApagar = P->topo;
+    PONT topoApagar = p->topo;
     p->topo = p->topo.prox;
     free(topoApagar);
     return true;
@@ -83,7 +83,7 @@ bool pop(PILHA* p, REGISTRO reg){
 bool popWithReturn(PILHA* p, REGISTRO* reg){
     if (p->topo == NULL) return false;
     *reg = p->topo->reg;
-    PONT topoApagar = P->topo;
+    PONT topoApagar = p->topo;
     p->topo = p->topo.prox;
     free(topoApagar);
     return true;
@@ -93,7 +93,7 @@ bool popWithReturn(PILHA* p, REGISTRO* reg){
 void reinicializarPilha(PILHA* p){
     PONT topoApagar;
     while(p->topo != NULL){
-        topoApagar = P->topo;
+        topoApagar = p->topo;
         free(topoApagar);
         p->topo = p->topo->prox;
     }
