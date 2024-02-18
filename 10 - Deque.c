@@ -20,6 +20,11 @@ typedef struct{
 }DEQUE;
 
 void inicializar(DEQUE* d){
-    d->cebaca = NULL;
+    d->cebaca = (PONT) malloc (sizeif(ELEMENTO));
+    d->cabeca->proximo = d->cabeca;
+    d->cabeca->anterior = d->anterior;
 }
 
+int tamanhoDeque(DEQUE* d){
+    d->
+}
