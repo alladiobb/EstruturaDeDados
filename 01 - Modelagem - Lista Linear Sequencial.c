@@ -51,9 +51,9 @@ void exibirLista(LISTA* l){
     int i;
     printf("Lista: \" ");
     for(i=0;i<l->nroElem;i++){
-        printf("%i",l->A[i].chave)
+        printf("%i",l->A[i].chave);
     }
-    print("\"\n")
+    print("\"\n");
 }
 
 //Buscar por elemento
