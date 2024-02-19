@@ -8,7 +8,7 @@ typedef struct{
 }REGISTRO;
 
 typedef struct aux{
-    REGISTRO reg;
+    REGISTRO registro;
     struct aux* proximo;
     struct aux* anterior;
 }ELEMENTO;
@@ -43,4 +43,25 @@ int tamanhoDequeAnterior(DEQUE* d){
         endereco = endereco->anterior;
     }
     return tamanho;
+}
+
+void tamanhoDequeAnterior(DEQUE* d){
+    PONT enderecoElem = d->cabeca->anterior;
+    printf("Deque partindo do Fim: \" ");
+    while (enderecoElem != d->cabeca){
+        printf("%i ", enderecoElem->registro.chave);
+        enderecoElem = enderecoElem->anterior;
+
+    }
+    print("\"\n");
+}
+
+void tamanhoDequeComeco(DEQUE* d){
+    PONT enderecoElem = d->cabeca->proximo;
+    printf("Deque partindo do Comeco: \" ");
+    while (enderecoElem != d->cabeca){
+        printf("%i ", enderecoElem->registro.chave);
+        enderecoElem = enderecoElem->proximo;
+    }
+    print("\"\n");
 }
