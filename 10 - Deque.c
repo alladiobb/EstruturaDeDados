@@ -26,7 +26,7 @@ void inicializar(DEQUE* d){
 }
 
 int tamanhoDequeProximo(DEQUE* d){
-    PONT endereco = d->cabeca->prox;
+    PONT endereco = d->cabeca->proximo;
     int tamanho =0;
     while (endereco != d->cabeca){
         tamanho++;
@@ -56,7 +56,7 @@ void tamanhoDequeAnterior(DEQUE* d){
     print("\"\n");
 }
 
-void tamanhoDequeComeco(DEQUE* d){
+void tamanhoDequeProximo(DEQUE* d){
     PONT enderecoElem = d->cabeca->proximo;
     printf("Deque partindo do Comeco: \" ");
     while (enderecoElem != d->cabeca){
@@ -64,4 +64,13 @@ void tamanhoDequeComeco(DEQUE* d){
         enderecoElem = enderecoElem->proximo;
     }
     print("\"\n");
+
+}
+
+void adicionarDequeProximo(DEQUE* d, REGISTRO registroNovo){
+    PONT cabecaMallocNovo = (PONT) malloc (sizeof(ELEMENTO));
+    cabecaMallocNovo->registro = registroNovo;
+
+    d->cabeca->proximo = cabecaMallocNovo->anterior;
+    d->cabeca->anterior = cabecaMallocNovo->proximo;
 }
