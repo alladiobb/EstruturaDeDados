@@ -1,10 +1,10 @@
 #include<stdio.h>
 #include<malloc.h>
 
-typedef int TIPOCHAVE;
+typedef int Chave;
 
 typedef struct{
-    TIPOCHAVE chave;
+    Chave chave;
 }REGISTRO;
 
 typedef struct aux{
@@ -20,11 +20,27 @@ typedef struct{
 }DEQUE;
 
 void inicializar(DEQUE* d){
-    d->cebaca = (PONT) malloc (sizeif(ELEMENTO));
+    d->cabeca = (PONT) malloc (sizeof(ELEMENTO));
     d->cabeca->proximo = d->cabeca;
     d->cabeca->anterior = d->anterior;
 }
 
-int tamanhoDeque(DEQUE* d){
-    d->
+int tamanhoDequeProximo(DEQUE* d){
+    PONT endereco = d->cabeca->prox;
+    int tamanho =0;
+    while (end != d->cabeca){
+        tamanho++;
+        endereco = endereco->proximo;
+    }
+    return tamanho;
+}
+
+int tamanhoDequeAnterior(DEQUE* d){
+    PONT endereco = d->cabeca->anterior;
+    int tamanho =0;
+    while (end != d->cabeca){
+        tamanho++;
+        endereco = endereco->anterior;
+    }
+    return tamanho;
 }
