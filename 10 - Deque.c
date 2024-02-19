@@ -22,13 +22,13 @@ typedef struct{
 void inicializar(DEQUE* d){
     d->cabeca = (PONT) malloc (sizeof(ELEMENTO));
     d->cabeca->proximo = d->cabeca;
-    d->cabeca->anterior = d->anterior;
+    d->cabeca->anterior = d->cabeca;
 }
 
 int tamanhoDequeProximo(DEQUE* d){
     PONT endereco = d->cabeca->prox;
     int tamanho =0;
-    while (end != d->cabeca){
+    while (endereco != d->cabeca){
         tamanho++;
         endereco = endereco->proximo;
     }
@@ -38,7 +38,7 @@ int tamanhoDequeProximo(DEQUE* d){
 int tamanhoDequeAnterior(DEQUE* d){
     PONT endereco = d->cabeca->anterior;
     int tamanho =0;
-    while (end != d->cabeca){
+    while (endereco != d->cabeca){
         tamanho++;
         endereco = endereco->anterior;
     }
