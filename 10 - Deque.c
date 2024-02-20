@@ -1,6 +1,10 @@
 #include<stdio.h>
 #include<malloc.h>
 
+#define true 1
+#define false 0
+typedef int bool;
+
 typedef int Chave;
 
 typedef struct{
@@ -67,10 +71,17 @@ void tamanhoDequeProximo(DEQUE* d){
 
 }
 
-void adicionarDequeProximo(DEQUE* d, REGISTRO registroNovo){
-    PONT cabecaMallocNovo = (PONT) malloc (sizeof(ELEMENTO));
-    cabecaMallocNovo->registro = registroNovo;
+bool adicionarDequeProximo(DEQUE* d, REGISTRO registroNovo){
+    PONT posiMallocNovo = (PONT) malloc (sizeof(ELEMENTO));
+    
+    posiMallocNovo->registro = registroNovo;
+    posiMallocNovo->proximo = d->cabeca;
+    posiMallocNovo->anterior = d->cabeca->anterior;
+   
+    d->cabeca->anterior = posiMallocNovo;
 
-    d->cabeca->proximo = cabecaMallocNovo->anterior;
-    d->cabeca->anterior = cabecaMallocNovo->proximo;
+    posiMallocNovo->anterior->proximo =  posiMallocNovo;
+
+    return false;
 }
+
