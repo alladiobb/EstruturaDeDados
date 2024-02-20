@@ -49,7 +49,7 @@ int tamanhoDequeAnterior(DEQUE* d){
     return tamanho;
 }
 
-void tamanhoDequeAnterior(DEQUE* d){
+void imprimirDequeAnterior(DEQUE* d){
     PONT enderecoElem = d->cabeca->anterior;
     printf("Deque partindo do Fim: \" ");
     while (enderecoElem != d->cabeca){
@@ -60,7 +60,7 @@ void tamanhoDequeAnterior(DEQUE* d){
     print("\"\n");
 }
 
-void tamanhoDequeProximo(DEQUE* d){
+void imprimirDequeProximo(DEQUE* d){
     PONT enderecoElem = d->cabeca->proximo;
     printf("Deque partindo do Comeco: \" ");
     while (enderecoElem != d->cabeca){
@@ -71,17 +71,19 @@ void tamanhoDequeProximo(DEQUE* d){
 
 }
 
-bool adicionarDequeProximo(DEQUE* d, REGISTRO registroNovo){
+bool adicionarDequeProximo(DEQUE* deque, REGISTRO registroNovo){
     PONT posiMallocNovo = (PONT) malloc (sizeof(ELEMENTO));
     
     posiMallocNovo->registro = registroNovo;
-    posiMallocNovo->proximo = d->cabeca;
-    posiMallocNovo->anterior = d->cabeca->anterior;
+    posiMallocNovo->proximo = deque->cabeca;
+    posiMallocNovo->anterior = deque->cabeca->anterior;
    
-    d->cabeca->anterior = posiMallocNovo;
+    deque->cabeca->anterior = posiMallocNovo;
 
     posiMallocNovo->anterior->proximo =  posiMallocNovo;
-
+    // Essa segunda linha(abaixo "2 - deque...") pode substituir a próxima sem problema 
+    // 2 - deque->cabeca->anterior->proximo = posiMallocNovo;
+    
     return false;
 }
 
