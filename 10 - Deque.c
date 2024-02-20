@@ -87,3 +87,13 @@ bool adicionarDequeProximo(DEQUE* deque, REGISTRO registroNovo){
     return false;
 }
 
+bool excluirElementoProximo(DEQUE* deque, REGISTRO* registro){
+    if (deque->cabeca->proximo == deque->cabeca) return false;
+    
+    PONT apagar = deque->cabeca->proximo;
+    *registro = apagar->registro;
+    deque->cabeca->proximo = apagar->proximo;
+    deque->cabeca->anterior = deque->cabeca;
+    free(apagar);
+    return true;
+}
