@@ -18,7 +18,7 @@ typedef struct{
     int numeroElementos;
 }FILA;
 
-void inicializa(FILA* fila ){
+void inicializarFila(FILA* fila ){
     fila->inicio = 0;
     fila->numeroElementos = 0;
 }
@@ -60,4 +60,8 @@ bool excluirElementoFila(FILA* fila, REGISTRO* registro){
     fila->inicio = (fila->inicio+1) % MAX;
     fila->numeroElementos--;
     return true;
+}
+
+void reinicializarFila(FILA* fila){
+    inicializarFila(fila);
 }
