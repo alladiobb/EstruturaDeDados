@@ -27,7 +27,7 @@ int tamanho(FILA* fila){
     return fila->numeroElementos;
 }
 
-int imprimirFila(FILA* fila){
+void imprimirFila(FILA* fila){
     printf("Fila: \" ");
     int i = fila->inicio;
     int temp;
@@ -39,4 +39,15 @@ int imprimirFila(FILA* fila){
         i = (i + 1) % MAX;
     }
     printf("\"n");
+}
+
+int inserirElementoFila(FILA* fila, REGISTRO registro){
+    if (fila->numeroElementos >= MAX) return false;
+    //Essa linha abaixo é crucial para o funcionamento da função inserir
+    //Ela garante que adição na última posição da fila. 
+    int posicao = (fila->inicio + fila->numeroElementos) % MAX;
+    
+    fila->registros[posicao] = registro;
+    fila->numeroElementos++;
+    return true;
 }
