@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<malloc.h>
 
 #define MAX 50
 #define true 1
