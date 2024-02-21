@@ -41,7 +41,7 @@ void imprimirFila(FILA* fila){
     printf("\"n");
 }
 
-int inserirElementoFila(FILA* fila, REGISTRO registro){
+bool inserirElementoFila(FILA* fila, REGISTRO registro){
     if (fila->numeroElementos >= MAX) return false;
     //Essa linha abaixo é crucial para o funcionamento da função inserir
     //Ela garante que adição na última posição da fila. 
@@ -49,5 +49,15 @@ int inserirElementoFila(FILA* fila, REGISTRO registro){
     
     fila->registros[posicao] = registro;
     fila->numeroElementos++;
+    return true;
+}
+
+bool excluirElementoFila(FILA* fila, REGISTRO* registro){
+    if (fila->numeroElementos <= 0) return false;
+    *registro = fila->registros[fila->inicio];
+    //Essa linha abaixo é crucial para o funcionamento da função excluir
+    //Garante que a primeira posição será alterada para a posição correta
+    fila->inicio = (fila->inicio+1) % MAX;
+    fila->numeroElementos--;
     return true;
 }
