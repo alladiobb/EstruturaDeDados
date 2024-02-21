@@ -97,3 +97,15 @@ bool excluirElementoProximo(DEQUE* deque, REGISTRO* registro){
     free(apagar);
     return true;
 }
+
+void reinicializarDeque(DEQUE* deque){
+    PONT enderecoCabeca = deque->cabeca->proximo;
+    PONT enderecoApagar;
+    while(enderecoCabeca != deque->cabeca ){
+        enderecoApagar = enderecoCabeca;
+        enderecoCabeca = enderecoCabeca->proximo;
+        free(enderecoApagar);
+    }
+    deque->cabeca->proximo = deque->cabeca;
+    deque->cabeca->anterior = deque->cabeca;
+}
