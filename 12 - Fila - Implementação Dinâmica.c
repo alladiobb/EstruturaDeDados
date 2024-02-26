@@ -19,6 +19,10 @@ typedef struct aux{
     REGISTRO registro;
     struct aux* proximo;
 }ELEMENTO, *PONT;
+//Essa linha acima substitui a linha abaixo
+// -> typedef ELEMENTO* PONT; <-
+//é um outro modo de ciar um ponteiro para elemento
+
 
 typedef struct{
     PONT inicio;
