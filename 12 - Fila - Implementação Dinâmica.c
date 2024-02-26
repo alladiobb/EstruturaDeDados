@@ -29,13 +29,19 @@ typedef struct{
     PONT final;
 }FILA;
 
-void inicializarFila(FILA* fila ){
-    fila->inicio = 0;
-    fila->final = 0;
+void inicializarFila(FILA* fila){
+    fila->inicio = NULL;
+    fila->final = NULL;
 }
 
 int tamanho(FILA* fila){
-    return 0;
+    int contadorTamanho = 0;
+    PONT pontElemento = fila->inicio;
+    while(pontElemento->proximo != NULL){
+        contadorTamanho ++;
+        pontElemento = pontElemento->proximo;
+    }
+    return contadorTamanho;
 }
 
 void imprimirFila(FILA* fila){
