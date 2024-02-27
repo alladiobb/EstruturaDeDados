@@ -46,15 +46,14 @@ int tamanho(FILA* fila){
 
 void imprimirFila(FILA* fila){
     printf("Fila: \" ");
-    int i = fila->inicio;
-    int temp;
-    //for (temp = 0; temp < fila->numeroElementos; temp++)
-    //{
-        //printf("%i ", fila->registros[i].chave);
+    PONT pontElemento = fila->inicio;
+    while (pontElemento->proximo != NULL)
+    {
+        printf("%i ", pontElemento->registro.chave );
         //Essa linha abaixo é crucial para o funcionamento da função imprimirFila.
         //Ela garante que o loop percorra todos os elementos da fila sem acessar elementos fora do array.
-        //i = (i + 1) % MAX;
-    //}
+        pontElemento = pontElemento->proximo;
+    }
     printf("\"n");
 }
 
